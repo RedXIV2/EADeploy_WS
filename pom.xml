@@ -15,7 +15,20 @@
         <version.mongodb>3.10.1</version.mongodb>
         <version.json.api>1.0</version.json.api>
         <version.spring.core>5.1.5.RELEASE</version.spring.core>
+        <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
     </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>bom-all</artifactId>
+                <version>${version.wildfly.swarm}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     
     <dependencies>
         <dependency>
@@ -54,7 +67,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${version.spring.core}</version>
-        </dependency>                      
+        </dependency>
+        <dependency>
+          <groupId>org.wildfly.swarm</groupId>
+          <artifactId>jaxrs</artifactId>
+          <version>${version.wildfly.swarm}</version>
+        </dependency>                                
     </dependencies>
 
     <build>
@@ -104,6 +122,22 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+               <groupId>org.wildfly.swarm</groupId>
+               <artifactId>wildfly-swarm-plugin</artifactId>
+               <version>${version.wildfly.swarm}</version>
+               <configuration>
+                 <!--   <properties>
+                        <swarm.bind.address>127.0.0.1</swarm.bind.address>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+                    </properties> -->
+               </configuration>               
+               <executions>
+                 <execution>
+                   <goals><goal>package</goal></goals>
+                 </execution>
+               </executions>
+             </plugin>             
         </plugins>
     </build>
 </project>
