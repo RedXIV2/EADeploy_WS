@@ -18,9 +18,9 @@ spec:
       containers:
       - name: bp
         image: kanolanacr.azurecr.io/bprestws-fat:latest 
-        # container opens port 4000
+        # container opens port 8080
         ports:
-        - containerPort: 4000
+        - containerPort: 8080
           name: http
           protocol: TCP            
 ---
@@ -34,10 +34,10 @@ spec:
   # *Only supported by some cloud providers*
   type: LoadBalancer
   ports:
-    # Accept traffic sent to port 80
+    # Accept traffic sent to port 8080
     - name: http
-      port: 80
-      targetPort: 4000
+      port: 8080
+      targetPort: 8080
   selector:
     # Loadbalance traffic across Pods matching
     # this label selector
