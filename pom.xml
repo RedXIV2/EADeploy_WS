@@ -127,10 +127,9 @@
                <artifactId>wildfly-swarm-plugin</artifactId>
                <version>${version.wildfly.swarm}</version>
                <configuration>
-			     <!--
-					Uncomment out to have hollow jar created
-					<hollow>true</hollow>
-				 -->
+		    <!--
+			Uncomment out to have hollow jar created -->
+                    <hollow>true</hollow>
                  <!--   <properties>
                         <swarm.bind.address>127.0.0.1</swarm.bind.address>
                         <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
