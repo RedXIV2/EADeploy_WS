@@ -36,7 +36,7 @@ public class BloodPressure {
         return this.systolic;
     }   
     
-    private void setSystolic(int systolic) throws Exception { // mmHG
+    protected void setSystolic(int systolic) throws Exception { // mmHG
         if( systolic >= SYSTOLIC_MIN && systolic <= SYSTOLIC_MAX)
             this.systolic = systolic;
         else if( systolic < SYSTOLIC_MIN)
@@ -51,7 +51,7 @@ public class BloodPressure {
         return this.diastolic;
     }   
     
-    private void setDiastolic(int diastolic) throws Exception { // mmHG
+    protected void setDiastolic(int diastolic) throws Exception { // mmHG
         if( diastolic >= DIASTOLIC_MIN && diastolic <= DIASTOLIC_MAX)
             this.diastolic = diastolic;
         else if( diastolic < DIASTOLIC_MIN)
@@ -66,7 +66,7 @@ public class BloodPressure {
         return this.category;
     }   
     
-    private void setBPCategory() { 
+    protected void setBPCategory() { 
         //Low
         if( this.getDiastolic() < 60 && this.getSystolic() < 90 )
             this.category = BPCategory.Low;
