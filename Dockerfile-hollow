@@ -1,3 +1,6 @@
 FROM anapsix/alpine-java:8u151b12_jdk
 
+# Uncomment this when running from pipeline
 copy JAVA_APP/target/BPRestWS-1.0-SNAPSHOT-hollow-swarm.jar .
+# Uncomment this when building locally
+# copy target/BPRestWS-1.0-SNAPSHOT-hollow-swarm.jar .

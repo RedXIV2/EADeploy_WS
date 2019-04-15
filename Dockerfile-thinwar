@@ -1,6 +1,9 @@
-FROM kanolanacr.azurecr.io/bprestws-hollow:latest
+FROM ca1acr.azurecr.io/ca-back-end-hollow:latest
 
 EXPOSE 8080
 
+# Uncomment this when running from pipeline
 copy JAVA_APP/target/BPRestWS-1.0-SNAPSHOT.war .
+# Uncomment this when building locally
+# copy target/BPRestWS-1.0-SNAPSHOT.war .
 CMD ["java", "-Djava.net.preferIPv4Stack=true", "-jar", "BPRestWS-1.0-SNAPSHOT-hollow-swarm.jar", "BPRestWS-1.0-SNAPSHOT.war"]
