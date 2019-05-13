@@ -7,7 +7,13 @@ metadata:
     app: bp
 spec:
   # modify replicas according to your case
-  replicas: 1 
+  replicas: 3
+  # updating deployment strategy
+  strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 33%
   # pod template
   template:
     metadata:
