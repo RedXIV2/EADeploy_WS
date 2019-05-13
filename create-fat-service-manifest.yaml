@@ -10,10 +10,10 @@ spec:
   replicas: 3
   # updating deployment strategy
   strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxSurge: 1
-    maxUnavailable: 33%
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 33%
   # pod template
   template:
     metadata:
